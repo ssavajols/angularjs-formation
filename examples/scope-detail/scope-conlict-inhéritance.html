@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>AngularJS Scope detail</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    </head>
+<body ng-init="name='World'">
+    <h1>Hello, {{name}}</h1>
+    <div ng-controller="HelloController">
+        Say hello to: <input type="text" ng-model="name">
+        <h2>Hello, {{name}}!</h2>
+    </div>
+    <script>
+        angular.module("app", [])
+                .controller("HelloController", function(){});
+    </script>
+</body>
+</html>

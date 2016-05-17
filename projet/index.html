@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Hello world</title>
+    <meta charset="utf-8">
+    <script src="../vendor/angular.min.js"></script>
+</head>
+<body>
+
+    <div ng-app="app">
+        <div ng-controller="myController">
+            Hello, {{name}}!
+
+            <div ng-include="'./template.html'"></div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

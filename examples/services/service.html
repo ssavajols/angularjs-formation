@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>AngularJS Service</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    </head>
+    <body>
+<div ng-controller="worldController">
+    Hello, {{name}} !
+</div>
+
+<script>
+
+angular.module("app", [])
+        .service("helloWorldService", function(){
+            this.name = "World";
+        })
+        .controller("worldController", function ($scope, helloWorldService) {
+            $scope.name = helloWorldService.name;
+        });
+</script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>AngularJS Scope detail</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    </head>
+<body>
+<div ng-controller="HelloController">
+    <h4>URI : {{path}}!</h4>
+    <button ng-click="changeHash()">Random URI</button>
+</div>
+<script>
+    angular.module("app", [])
+            .controller("HelloController", function($scope, $location){
+                $scope.path = "/";
+                $scope.changeHash = function changeHash(){
+                    $location.path("/"+Math.random());
+                };
+                $scope.$on("$locationChangeSuccess", function(event, newUrl, oldUrl){
+                    $scope.path = newUrl;
+                });
+            });
+</script>
+</body>
+</html>
