@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Hello world</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height:100%;
+            }
+            .gmap {
+                width: 100%;
+                height:33%;
+            }
+        </style>
+    </head>
+    <body ng-app="app" ng-controller="exemple">
+        <gmap zoom="{{zoom}}" current-position="true" markers="['Paris france', 'Amiens france', 'Genève suisse']"></gmap>
+        <gmap current-position= "true" markers="['Saint-denis','Lyon']"></gmap>
+        <gmap></gmap>
+    </body>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcCIlKU-4ofHeO1If0YlF3SvfH1KuPeo"></script>
+
+    <script src="./app.google.maps/directive/gmap.js"></script>
+    <script src="./app.google.maps/service/geocoder.js"></script>
+    <script src="./app.google.maps/service/gmap.js"></script>
+    <script src="./app.google.maps/service/marker.js"></script>
+    <script src="./app.google.maps/index.js"></script>
+    <script src="./app.js"></script>
+</html>

@@ -1,0 +1,1 @@
+angular.module("app.google.maps.service.marker", [])

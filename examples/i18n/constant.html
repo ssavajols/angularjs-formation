@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>AngularJS Constant</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    </head>
+    <body>
+<div ng-controller="worldController">
+    {{i18n.hello}}, {{name}} !
+</div>
+
+<script>
+
+angular.module("app", [])
+        .constant("WORLD_LABEL", "World")
+        .run(function($rootScope){
+
+            $rootScope.i18n = {};
+            $rootScope.i18n.hello = "Bonjour";
+
+        })
+        .controller("worldController", function ($scope, WORLD_LABEL) {
+            $scope.name = WORLD_LABEL;
+        });
+</script>
+    </body>
+</html>
