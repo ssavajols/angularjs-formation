@@ -18,7 +18,6 @@ angular.module("app.google.maps.directive.gmap", [])
              */
             compile: function(elements, attrs){
                 attrs["map-name"] = "gmap-"+~~(Math.random()*10000000);
-                elements.addClass("loading");
             },
             /**
              *
@@ -42,8 +41,6 @@ angular.module("app.google.maps.directive.gmap", [])
 
                 googleMapsServiceGmap
                     .createMap(mapName, $element[0], mapOptions);
-                
-                $element.removeClass("loading");
                 
                 if( $scope.currentPosition ){
                     googleMapsServiceGmap
