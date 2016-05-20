@@ -1,4 +1,4 @@
-angular.module("app.google.maps.service.gmap", [])
+    angular.module("app.google.maps.service.gmap", [])
 
     /**
      * 
