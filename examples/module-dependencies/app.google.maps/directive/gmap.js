@@ -40,7 +40,7 @@ angular.module("app.google.maps.directive.gmap", [])
                 });
 
                 googleMapsServiceGmap
-                    .createMap(mapName, $element[0], mapOptions)
+                    .createMap(mapName, $element[0], mapOptions);
                 
                 if( $scope.currentPosition ){
                     googleMapsServiceGmap
@@ -56,6 +56,7 @@ angular.module("app.google.maps.directive.gmap", [])
                     googleMapsServiceGmap
                         .destroyMap(mapName);
                 });
+
             }
         }
         

@@ -43,6 +43,8 @@
                                 title: results[index].formatted_address
                             });
 
+                            self.maps[name].markerList.push(marker);
+
                             marker.addListener("click", function(){
                                 self.addInfoWindow(name, this.position, "<a href='#'>"+this.title+"</a>");
                             })
@@ -52,6 +54,22 @@
 
             }
 
+        };
+
+        this.removeAllMarkers = function(mapName){
+            var marker;
+
+            while(marker = this.maps[mapName].markerList.pop() ){
+                marker.setMap(null);
+            }
+        };
+
+        this.removeAllInfoWindows = function(mapName){
+            var infoWindow;
+
+            while(infoWindow = this.maps[mapName].infoWindowList.pop() ){
+                infoWindow.setMap(null);
+            }
         };
 
         /**
@@ -66,6 +84,8 @@
             infoWindow.setPosition(position);
             infoWindow.setContent(content);
 
+            this.maps[name].infoWindowList.push(infoWindow);
+
             return infoWindow;
         };
 
@@ -77,7 +97,12 @@
          * @returns {google.maps.Map}
          */
         this.createMap = function(name, element, options){
-            return this.maps[name] = new google.maps.Map(element, options);
+            this.maps[name] = new google.maps.Map(element, options);
+
+            this.maps[name].markerList = [];
+            this.maps[name].infoWindowList = [];
+
+            return  this.maps[name];
         };
 
         /**
